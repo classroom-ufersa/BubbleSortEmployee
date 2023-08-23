@@ -1,3 +1,5 @@
+#include "funcionario.c"
+
 int main() {
     clock_t inicio = clock();
     // Executar o algoritmo
