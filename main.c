@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include "funcionario.h"
 
 int main() {
     clock_t inicio = clock();
