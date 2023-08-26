@@ -1,0 +1,20 @@
+Ordenação de sting com bubble sort: Implemente um algoritimo que manipule um arquivo tipo estruturado
+Funcionários e mantém os funcionários ordenados em ordem alfabética em um arquivo.
+    Os funcionários devem ter os atributos básicos:
+        
+        # nome;
+        # cargo;
+        # documento;
+    
+Requesitos 
+
+    - A cada execução do programa, ele deve carregar os dados (armazenados em um arquivo de texto);
+
+    - Cada novo funcionário cadastrado deve se inserido em ordem alfabéticaA ordenação deve ser 
+      realzada com o algoritimo Bublle Sort;
+    
+    - Comput o tempo de execução do processo de ordenação;
+
+    - Você deve atualizar o arquivo de texto para manter os nome sordenados em ordem alfabética;
+
+    - Informe a complexidade do algoritimo Bubble Sort.
