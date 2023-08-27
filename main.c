@@ -1,5 +1,4 @@
-#include "funcionario.c"
-//#include <time.h>
+#include "funcionario.h"
 
 int main() {
 
@@ -21,13 +20,4 @@ int main() {
     }
     printf(" Ordenado com Bubble Sort ");
 
-    clock_t inicio = clock();
-    // Executar o algoritmo
-    double tempo = (double)(clock() - inicio) / CLOCKS_PER_SEC;
-    tempo = tempo * 1000; //milisegundos
-    printf("Tempo de execucao: %.50f\n", tempo);
-
-    fclose(arquivo);
-
-    return 0;
-}
+    clock_t inicio = cloc

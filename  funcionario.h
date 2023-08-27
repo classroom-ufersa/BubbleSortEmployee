@@ -3,5 +3,6 @@
 #include <time.h>
 
 /* protótipo da struct funcionário*/
-typedef struct Funcionario; 
+typedef struct Funcionario funcionario; 
 
+void bubbleSort(int *vetor, int tamanho);
