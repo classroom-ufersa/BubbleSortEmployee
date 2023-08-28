@@ -29,5 +29,19 @@ int main() {
 
     fclose(arquivo);
 
+    char nome[50], cargo[50];
+    int documento;
+
+
+    printf(" informe seu nome: ");
+    scanf(" %[^\n]", nome);
+
+    printf(" informe seu cargo: ");
+    scanf(" %[^\n]", cargo);
+
+    printf(" informe seu documento: ");
+    scanf("%d", &documento);
+
+
     return 0;
 }
