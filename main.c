@@ -1,12 +1,16 @@
 #include "funcionario.h"
 
 int main() {
-    
+
+    Funcionario*cadastro;
+
     // criando arquivo de texto para armazenar os dados dos funcionarios.
     FILE *arquivo = fopen("funcionario.txt", "w");
     if(arquivo == NULL) {
         exit(1);
     }
+
+    menu();
 
     int vetor[] = {5, 3, 2, 4, 7, 1, 0, 6};
     int tamanho = sizeof(vetor) / sizeof(int);
