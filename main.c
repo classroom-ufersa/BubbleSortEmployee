@@ -1,9 +1,8 @@
 #include "funcionario.h"
 
 int main() {
-
-    //Funcionario *funcionario = (Funcionario*)malloc(sizeof * (Funcionario));
-
+    
+    // criando arquivo de texto para armazenar os dados dos funcionarios.
     FILE *arquivo = fopen("funcionario.txt", "w");
     if(arquivo == NULL) {
         exit(1);
@@ -13,6 +12,7 @@ int main() {
     int tamanho = sizeof(vetor) / sizeof(int);
     int i;
 
+    // Passando os dados para a função bublleSort.
     bubbleSort(vetor, tamanho);
 
     for (i = 0; i < tamanho; i++) {
