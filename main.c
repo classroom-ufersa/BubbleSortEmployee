@@ -17,22 +17,6 @@ int main() {
     int i;
 
     //Funcionario *VarFuncionario = menu(); //CONSERTAR
-
-    // Passando os dados para a função bublleSort.
-    bubbleSort(vetor, tamanho);
-
-    for (i = 0; i < tamanho; i++) {
-        printf("%d ", vetor[i]);
-    }
-    printf(" Ordenado com Bubble Sort ");
-
-    clock_t inicio = clock();
-       
-    // Executar o algoritmo
-    double tempo = (double)(clock() - inicio) / CLOCKS_PER_SEC;
-    tempo = tempo * 1000; //milisegundos
-    printf("Tempo de execucao: %.50f\n", tempo);
-
     
     char nome[50], cargo[50];
     int documento;
@@ -85,6 +69,21 @@ int main() {
     } while(opc != 3);
 
     Funcionario *VarFuncionario = CriarFuncionario(nome, cargo, documento);
+
+      // Passando os dados para a função bublleSort.
+    bubbleSort(vetor, tamanho);
+
+    for (i = 0; i < tamanho; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf(" Ordenado com Bubble Sort ");
+
+      clock_t inicio = clock();
+       
+    // Executar o algoritmo
+    double tempo = (double)(clock() - inicio) / CLOCKS_PER_SEC;
+    tempo = tempo * 1000; //milisegundos
+    printf("Tempo de execucao: %.50f\n", tempo);
 
     fclose(arquivo);
     
