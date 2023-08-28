@@ -20,7 +20,7 @@ void bubbleSort(int *vetor, int tamanho) {
     }
 }
 
-void menu(){
+void menu(Funcionario*cadastro){
 
     int opc;
     
@@ -28,19 +28,33 @@ void menu(){
     printf("(1) CADASTRAR\n");
     printf("(2) LISTA\n");
     printf("(3) SAIR\n");
-    printf("========================")
+    printf("========================");
     scanf("%d",&opc);
 
     switch(opc){
-        case 1:
+        case 1: // Cadastrando os dados na struct Funcionario.
+           
+            do{
+                
+                printf(" Informe Seu Nome: ");
+                scanf(" %[^\n]", cadastro[i]->nome);
+
+                printf(" Informe Seu Cargo: ");
+                scanf(" %[^\n]", cadastro[i]->cargo);
+
+                printf(" Informe Seu Documento: ");
+                scanf("%d", &cadastro[i]->documento);
+                printf("Continuar Cadastrando (1) SIM / (2) NÂO");
+                scanf("%d",&opc);
+            }while(opc!=2);
+         
+            break;
+        case 2: // Listando os dados do arquivo. 
             printf("NADA AINDA!");
             break;
-        case 2:
-            printf("NADA AINDA!");
-            break;
-        case 3:
-            printf("OBRIGADO POR USAR O PROGRAMA!\n")
-            printf("SAINDO...")
+        case 3: // Fechando o programa.
+            printf("OBRIGADO POR USAR O PROGRAMA!\n");
+            printf("SAINDO...");
             exit(1);
             break;
         default:

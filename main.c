@@ -31,8 +31,7 @@ int main() {
     tempo = tempo * 1000; //milisegundos
     printf("Tempo de execucao: %.50f\n", tempo);
 
-    fclose(arquivo);
-
+    
     char nome[50], cargo[50];
     int documento;
 
@@ -47,5 +46,8 @@ int main() {
     scanf("%d", &documento);
 
 
+    
+    fclose(arquivo);
+    
     return 0;
 }
