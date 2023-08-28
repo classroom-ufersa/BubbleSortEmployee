@@ -4,7 +4,9 @@
 
 int main() {
 
-    //Funcionario var_funcionario[10]; //CONSERTAR
+    //Funcionario *var_funcionario[10]; //CONSERTAR
+
+    Funcionario *VarFuncionario[10];
 
     // criando arquivo de texto para armazenar os dados dos funcionarios.
     FILE *arquivo = fopen("funcionario.txt", "w");
@@ -21,7 +23,7 @@ int main() {
     char nome[50], cargo[50];
     int documento;
 
-    int opc, contador;
+    int opc, contador = 0, sair = 0;
     
     /*printf("==========MENU==========\n");
     printf("(1) CADASTRAR\n");
@@ -35,42 +37,50 @@ int main() {
 
         switch(opc){
             case 1: // Cadastrando os dados na struct Funcionario.
-                for(contador = 0; contador < MAX_FUNCIONARIO; contador++) {
+                 do{
+                        contador++;
+                        printf("FUNCIONARIO %i\n", contador + 1);
                         printf(" Informe Seu Nome: ");
-                        scanf(" %[^\n]", CriarFuncionario[contador].nome);
+                        scanf(" %{^\n}", VarFuncionario[contador]->nome);
 
                         printf(" Informe Seu Cargo: ");
-                        scanf(" %[^\n]", CriarFuncionario[contador].cargo);
+                        scanf(" %[^\n]", VarFuncionario[contador]->cargo);
 
                         printf(" Informe Seu Documento: ");
-                        scanf("%d", &CriarFuncionario[contador].documento);
+                        scanf("%d", &VarFuncionario[contador]->documento);
                         printf("Continuar Cadastrando (1) SIM / (2) NÂO");
-                        scanf("%d",&opc);
+                        scanf("%d", &sair);
 
                         if(contador = MAX_FUNCIONARIO) {
                             printf("Limite de cadastro foi atingido! \n");
-                        }
-                }     
+                        }    
 
+                 } while(sair != 1 || contador != 10);
+        
                 break;
+
             case 2: // Listando os dados do arquivo. 
                 printf("NADA AINDA!");
+
                 break;
+
             case 3: // Fechando o programa.
                 printf("OBRIGADO POR USAR O PROGRAMA!\n");
                 printf("SAINDO...");
                 exit(1);
+
                 break;
+
             default:
                 printf("Numero errado! Tente novamente! \n");
-                menu(); // CONSERTAR
+                menu(); 
         }
         
     } while(opc != 3);
 
-    Funcionario *VarFuncionario = CriarFuncionario(nome, cargo, documento);
+    //Funcionario *VarFuncionario = CriarFuncionario(nome, cargo, documento);
 
-      // Passando os dados para a função bublleSort.
+    // Passando os dados para a função bublleSort.
     bubbleSort(vetor, tamanho);
 
     for (i = 0; i < tamanho; i++) {
@@ -78,7 +88,7 @@ int main() {
     }
     printf(" Ordenado com Bubble Sort ");
 
-      clock_t inicio = clock();
+    clock_t inicio = clock();
        
     // Executar o algoritmo
     double tempo = (double)(clock() - inicio) / CLOCKS_PER_SEC;
