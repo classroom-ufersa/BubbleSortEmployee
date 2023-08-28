@@ -41,7 +41,7 @@ int main() {
                         contador++;
                         printf("FUNCIONARIO %i\n", contador + 1);
                         printf(" Informe Seu Nome: ");
-                        scanf(" %{^\n}", VarFuncionario[contador]->nome);
+                        scanf(" %[^\n]", VarFuncionario[contador]->nome);
 
                         printf(" Informe Seu Cargo: ");
                         scanf(" %[^\n]", VarFuncionario[contador]->cargo);
