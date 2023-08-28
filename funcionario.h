@@ -14,3 +14,4 @@ Funcionario *CriarFuncionario(char *nome, char *cargo, int documento);
 
 // Prototico do menu.
 void menu();
+//void menu(Funcionario *VarFuncionario);
