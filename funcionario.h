@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* protótipo da struct funcionário*/
+// Protótipo da struct funcionário.
 typedef struct Funcionario funcionario; 
 
+// Prototico da bubbleSort.
 void bubbleSort(int *vetor, int tamanho);

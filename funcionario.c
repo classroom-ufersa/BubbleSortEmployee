@@ -6,6 +6,7 @@ struct Funcionario {
     int documento;
 };
 
+// Função que vai ordenar as string em ordem.
 void bubbleSort(int *vetor, int tamanho) {
     int i, j, aux;
     for (i = 0; i < tamanho; i++) {
