@@ -9,5 +9,8 @@ typedef struct funcionario Funcionario;
 // Prototico da bubbleSort.
 void bubbleSort(int *vetor, int tamanho);
 
+// Protótipo da função da struct dinâmica
+Funcionario *CriarFuncionario(char *nome, char *cargo, int documento);
+
 // Prototico do menu.
 void menu();

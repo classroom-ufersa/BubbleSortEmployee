@@ -20,6 +20,20 @@ void bubbleSort(int *vetor, int tamanho) {
     }
 }
 
+Funcionario *CriarFuncionario(char *nome, char *cargo, int documento) {
+    Funcionario *VarFuncionario = (Funcionario*)malloc(sizeof(Funcionario));
+    if(VarFuncionario == NULL) {
+        printf("Variavel VarFuncionario nao foi alocada dinamicamente! \n");
+        exit(1);
+    }
+
+    strcpy(VarFuncionario->nome, nome); //copiar string
+    strcpy(VarFuncionario->cargo, cargo); //copiar string
+    VarFuncionario->documento = documento; //documento(struct) recebe documento(parâmetro)
+
+    return VarFuncionario;
+}
+
 void menu(Funcionario*cadastro){
 
     int opc;
