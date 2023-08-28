@@ -1,6 +1,6 @@
 #include "funcionario.h"
 
-struct Funcionario {
+struct funcionario {
     char nome[50];
     char cargo[50];
     int documento;
@@ -17,5 +17,34 @@ void bubbleSort(int *vetor, int tamanho) {
                 vetor[j + 1] = aux;
             }
         }
+    }
+}
+
+void menu(){
+
+    int opc;
+    
+    printf("==========MENU==========\n");
+    printf("(1) CADASTRAR\n");
+    printf("(2) LISTA\n");
+    printf("(3) SAIR\n");
+    printf("========================")
+    scanf("%d",&opc);
+
+    switch(opc){
+        case 1:
+            printf("NADA AINDA!");
+            break;
+        case 2:
+            printf("NADA AINDA!");
+            break;
+        case 3:
+            printf("OBRIGADO POR USAR O PROGRAMA!\n")
+            printf("SAINDO...")
+            exit(1);
+            break;
+        default:
+            menu();
+
     }
 }
