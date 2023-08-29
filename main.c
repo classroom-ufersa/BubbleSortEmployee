@@ -1,4 +1,4 @@
-#include "funcionario.h"
+#include "funcionario.c"  //.c compila gcc -o main main.c
 
 #define MAX_FUNCIONARIO 10
 
@@ -38,16 +38,19 @@ int main() {
         switch(opc){
             case 1: // Cadastrando os dados na struct Funcionario.
                  do{
-                        contador++;
                         printf("FUNCIONARIO %i\n", contador + 1);
                         printf(" Informe Seu Nome: ");
-                        scanf(" %[^\n]", VarFuncionario[contador]->nome);
+                        scanf(" %[^\n]", nome);
 
                         printf(" Informe Seu Cargo: ");
-                        scanf(" %[^\n]", VarFuncionario[contador]->cargo);
+                        scanf(" %[^\n]", cargo);
 
                         printf(" Informe Seu Documento: ");
-                        scanf("%d", &VarFuncionario[contador]->documento);
+                        scanf("%d", &documento);
+
+                        VarFuncionario[contador] = CriarFuncionario(nome, cargo, documento);
+                        contador++;
+
                         printf("Continuar Cadastrando (1) SIM / (2) NÂO");
                         scanf("%d", &sair);
 
