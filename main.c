@@ -45,8 +45,8 @@ int main() {
                         scanf("%d", &sair);
 
                         if(sair != 1 && sair != 2) {
-                            while(sair != 1 && sair != 2) {
-                                printf("Voce digitou um numero incorreto! \n\n");
+                            while(sair != 1 && sair != 2) {  //CONSERTAR LOOP
+                                printf("Voce digitou um numero incorreto! \n");
                                 printf("Continuar cadastrando (1) SIM / (2) NAO: \n");
                                 scanf("%d", &sair);
                             }
@@ -57,7 +57,7 @@ int main() {
                         }    
                         contador++;
 
-                 } while(sair != 2 || contador != 10);
+                 } while(sair != 2 && contador != 10);
         
                 break;
 
