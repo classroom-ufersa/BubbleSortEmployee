@@ -6,12 +6,14 @@
 // Protótipo da struct funcionário.
 typedef struct funcionario Funcionario; 
 
-// Prototico da bubbleSort.
+// Protótipo da bubbleSort.
 void bubbleSort(int *vetor, int tamanho);
 
 // Protótipo da função da struct dinâmica
 Funcionario *CriarFuncionario(char *nome, char *cargo, int documento);
 
-// Prototico do menu.
+// Protótipo do menu.
 void menu();
-//void menu(Funcionario *VarFuncionario);
+
+// Protótipo da função arquivo
+void arquivo(FILE *arquivo);

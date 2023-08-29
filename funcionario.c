@@ -43,47 +43,11 @@ void menu() {
     printf("======================== \n");
 }
 
-/*void menu(Funcionario *VarFuncionario){  //CONSERTAR
+void CriaArquivo(FILE *arquivo, Funcionario **VarFuncionario) {
+    int contador;
 
-    int opc, contador;
-    
-    printf("==========MENU==========\n");
-    printf("(1) CADASTRAR\n");
-    printf("(2) LISTA\n");
-    printf("(3) SAIR\n");
-    printf("========================");
-    scanf("%d",&opc);
-
-    switch(opc){
-        case 1: // Cadastrando os dados na struct Funcionario.
-           
-           for(contador = 0; contador < MAX_FUNCIONARIO; contador++) {
-                printf(" Informe Seu Nome: ");
-                scanf(" %[^\n]", VarFuncionario[contador].nome);
-
-                printf(" Informe Seu Cargo: ");
-                scanf(" %[^\n]", VarFuncionario[contador].cargo);
-
-                printf(" Informe Seu Documento: ");
-                scanf("%d", &VarFuncionario[contador].documento);
-                printf("Continuar Cadastrando (1) SIM / (2) NÂO");
-                scanf("%d",&opc);
-
-                if(contador = MAX_FUNCIONARIO) {
-                    printf("Limite de cadastro foi atingido! \n");
-                }
-           }     
-
-            break;
-        case 2: // Listando os dados do arquivo. 
-            printf("NADA AINDA!");
-            break;
-        case 3: // Fechando o programa.
-            printf("OBRIGADO POR USAR O PROGRAMA!\n");
-            printf("SAINDO...");
-            exit(1);
-            break;
-        default:
-            menu(); // CONSERTAR
+    for(contador = 0; contador < 10; contador++) {
+        printf("FUNCIONARIO %i \n", contador);
+        fprintf(arquivo, "Nome: %s \n Cargo: %s \n Documento: %i \n\n", VarFuncionario[contador]->nome, VarFuncionario[contador]->cargo, VarFuncionario[contador]->documento);
     }
-}*/
+}

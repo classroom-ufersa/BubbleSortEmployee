@@ -62,15 +62,18 @@ int main() {
                 break;
 
             case 2: // Listando os dados do arquivo. 
-                printf("NADA AINDA! ");
+                while(sair != 1) {
+                    
+                    CriaArquivo(arquivo, VarFuncionario);
 
+                    printf("Digite 1 para sair! \n");
+                    scanf("%d", &sair);
+                }
                 break;
 
             case 3: // Fechando o programa.
                 printf("OBRIGADO POR USAR O PROGRAMA! \n");
                 printf("SAINDO... ");
-                exit(1);
-
                 break;
 
             default:
