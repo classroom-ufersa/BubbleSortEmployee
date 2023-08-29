@@ -56,6 +56,7 @@ int main() {
                             exit(1);
                         }    
                         contador++;
+                        CriaArquivo(arquivo, VarFuncionario);
 
                  } while(sair != 2 && contador != 10);
         
@@ -64,8 +65,6 @@ int main() {
             case 2: // Listando os dados do arquivo. 
                 while(sair != 1) {
                     
-                    CriaArquivo(arquivo, VarFuncionario);
-
                     printf("Digite 1 para sair! \n");
                     scanf("%d", &sair);
                 }
