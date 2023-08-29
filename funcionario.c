@@ -42,15 +42,14 @@ void menu() {
     printf("(3) SAIR\n");
     printf("======================== \n");
 }
-
-void CriaArquivo(FILE *arquivo, Funcionario **VarFuncionario) {
+/*void CriaArquivo(FILE *arquivo, Funcionario **VarFuncionario) {
     int contador;
 
     for(contador = 0; contador < 10; contador++) {
         printf("FUNCIONARIO %i \n", contador);
         fprintf(arquivo, "Nome: %s \n Cargo: %s \n Documento: %i \n\n", VarFuncionario[contador]->nome, VarFuncionario[contador]->cargo, VarFuncionario[contador]->documento);
     }
-}
+}*/
 void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     int i, j;
     Funcionario *aux;  // var do tipo funcionario 
@@ -58,13 +57,13 @@ void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
         for (j = 0; j < tamanho - 1; j++) {
             if (strcmp(VarFuncionario[j]->nome, VarFuncionario[j + 1]->nome) > 0){ // > 0 - compara se o vetor de trás é maior do que o da frente
                 aux = VarFuncionario[j]; //passa tudo, nao somente o nome
-                VarFuncionario[j] = VarFuncionario[j + 1];
+                VarFuncionario[j] = VarFuncionario[j + 1]; 
                 VarFuncionario[j + 1] = aux;
             }
         }
     }
 
-    for(i = 0; i < 10; i++) {
+    for(i = 0; i < tamanho; i++) {
         fprintf(arquivo, "Nome: %s \n Cargo: %s \n Documento: %i \n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
     }
 }

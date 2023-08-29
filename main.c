@@ -45,7 +45,7 @@ int main() {
                         scanf("%d", &sair);
 
                         if(sair != 1 && sair != 2) {
-                            while(sair != 1 && sair != 2) {  //CONSERTAR LOOP
+                            while(sair != 1 && sair != 2) { 
                                 printf("Voce digitou um numero incorreto! \n");
                                 printf("Continuar cadastrando (1) SIM / (2) NAO: \n");
                                 scanf("%d", &sair);
@@ -56,6 +56,7 @@ int main() {
                             exit(1);
                         }    
                         contador++;
+                        //Ordenar(arquivo, VarFuncionario, contador);
                         //CriaArquivo(arquivo, VarFuncionario); 
 
                  } while(sair != 2 && contador != 10);
@@ -64,7 +65,7 @@ int main() {
 
             case 2: // Listando os dados do arquivo. 
                 while(sair != 1) {
-                    
+
                     Ordenar(arquivo, VarFuncionario, contador);
 
                     printf("Digite 1 para sair! \n");
