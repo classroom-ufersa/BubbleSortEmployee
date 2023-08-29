@@ -17,3 +17,6 @@ void menu();
 
 // Protótipo da função arquivo
 void arquivo(FILE *arquivo);
+
+// Protótipo da função para ordernar
+void Ordenar(FILE *arquivo, Funcionario **VarFuncionario, int contador);
