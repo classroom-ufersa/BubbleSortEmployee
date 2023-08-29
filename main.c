@@ -30,29 +30,29 @@ int main() {
                  do{
                         contador2++;
                         printf("FUNCIONARIO %i \n", contador2);
-                        printf("Informe Seu Nome: ");
+                        printf("INFORME SEU NOME: ");
                         scanf(" %[^\n]", nome);
 
-                        printf("Informe Seu Cargo: ");
+                        printf("INFORME SEU CARGO: ");
                         scanf(" %[^\n]", cargo);
 
-                        printf("Informe Seu Documento: ");
+                        printf("INFORME SEU DOCUMENTO: ");
                         scanf("%d", &documento);
 
                         VarFuncionario[contador] = CriarFuncionario(nome, cargo, documento);
 
-                        printf("Continuar Cadastrando (1) SIM / (2) NAO ");
+                        printf(" CONTINUAR CADASTRANDO (1) SIM / (2) NAO ");
                         scanf("%d", &sair);
 
                         if(sair != 1 && sair != 2) {
-                            while(sair != 1 && sair != 2) {  //CONSERTAR LOOP
-                                printf("Voce digitou um numero incorreto! \n");
-                                printf("Continuar cadastrando (1) SIM / (2) NAO: \n");
+                            while(sair != 1 && sair != 2) { 
+                                printf(" VOCE DIGITOU UM NUMERO INCORETO! \n");
+                                printf("CONTINUAR CADASTRANDO (1) SIM / (2) NAO: \n");
                                 scanf("%d", &sair);
                             }
                         }
                         if(contador == MAX_FUNCIONARIO) {
-                            printf("Limite de cadastro foi atingido! \n");
+                            printf("LIMITE DE CADASTRO ATINGIDO! \n");
                             exit(1);
                         }    
                         contador++;
@@ -74,7 +74,7 @@ int main() {
                 break;
 
             default:
-                printf("Numero errado! Tente novamente! \n");
+                printf("NUMERO ERRADO! TENTE NOVAMENTE! \n");
         }
         
     } while(escolha != 3);
@@ -85,14 +85,14 @@ int main() {
     for (i = 0; i < tamanho; i++) {
         printf("%d ", vetor[i]);
     }
-    printf(" Ordenado com Bubble Sort ");
+    printf(" ORDENANDO COM BUBBLE SORT ");
 
     clock_t inicio = clock();
        
     // Executar o algoritmo
     double tempo = (double)(clock() - inicio) / CLOCKS_PER_SEC;
     tempo = tempo * 1000; //milisegundos
-    printf("Tempo de execucao: %.50f\n", tempo);
+    printf("TEMPO DE EXECUCAO: %.50f\n", tempo);
 
     fclose(arquivo);
     
