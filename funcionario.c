@@ -35,14 +35,12 @@ Funcionario *CriarFuncionario(char *nome, char *cargo, int documento) {
 }
 
 void menu() {
-    int opc, contador;
     
     printf("==========MENU==========\n");
     printf("(1) CADASTRAR\n");
     printf("(2) LISTA\n");
     printf("(3) SAIR\n");
     printf("======================== \n");
-    scanf("%d", &opc);
 }
 
 /*void menu(Funcionario *VarFuncionario){  //CONSERTAR

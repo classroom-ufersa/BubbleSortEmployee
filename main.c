@@ -4,8 +4,6 @@
 
 int main() {
 
-    //Funcionario *var_funcionario[10]; //CONSERTAR
-
     Funcionario *VarFuncionario[10];
 
     // criando arquivo de texto para armazenar os dados dos funcionarios.
@@ -17,71 +15,69 @@ int main() {
     int vetor[] = {5, 3, 2, 4, 7, 1, 0, 6};
     int tamanho = sizeof(vetor) / sizeof(int);
     int i;
-
-    //Funcionario *VarFuncionario = menu(); //CONSERTAR
     
     char nome[50], cargo[50];
     int documento;
 
-    int opc, contador = 0, sair = 0;
-    
-    /*printf("==========MENU==========\n");
-    printf("(1) CADASTRAR\n");
-    printf("(2) LISTA\n");
-    printf("(3) SAIR\n");
-    printf("========================");*/
+    int escolha, contador = 0, contador2 = 0, sair = 0;
 
     do {
         menu();
-        scanf("%d", &opc); 
+        scanf("%d", &escolha); 
 
-        switch(opc){
+        switch(escolha){
             case 1: // Cadastrando os dados na struct Funcionario.
                  do{
-                        printf("FUNCIONARIO %i\n", contador + 1);
-                        printf(" Informe Seu Nome: ");
+                        contador2++;
+                        printf("FUNCIONARIO %i \n", contador2);
+                        printf("Informe Seu Nome: ");
                         scanf(" %[^\n]", nome);
 
-                        printf(" Informe Seu Cargo: ");
+                        printf("Informe Seu Cargo: ");
                         scanf(" %[^\n]", cargo);
 
-                        printf(" Informe Seu Documento: ");
+                        printf("Informe Seu Documento: ");
                         scanf("%d", &documento);
 
                         VarFuncionario[contador] = CriarFuncionario(nome, cargo, documento);
-                        contador++;
 
-                        printf("Continuar Cadastrando (1) SIM / (2) NÂO");
+                        printf("Continuar Cadastrando (1) SIM / (2) NAO ");
                         scanf("%d", &sair);
 
-                        if(contador = MAX_FUNCIONARIO) {
+                        if(sair != 1 && sair != 2) {
+                            while(sair != 1 && sair != 2) {
+                                printf("Voce digitou um numero incorreto! \n\n");
+                                printf("Continuar cadastrando (1) SIM / (2) NAO: \n");
+                                scanf("%d", &sair);
+                            }
+                        }
+                        if(contador == MAX_FUNCIONARIO) {
                             printf("Limite de cadastro foi atingido! \n");
+                            exit(1);
                         }    
+                        contador++;
 
-                 } while(sair != 1 || contador != 10);
+                 } while(sair != 2 || contador != 10);
         
                 break;
 
             case 2: // Listando os dados do arquivo. 
-                printf("NADA AINDA!");
+                printf("NADA AINDA! ");
 
                 break;
 
             case 3: // Fechando o programa.
-                printf("OBRIGADO POR USAR O PROGRAMA!\n");
-                printf("SAINDO...");
+                printf("OBRIGADO POR USAR O PROGRAMA! \n");
+                printf("SAINDO... ");
                 exit(1);
 
                 break;
 
             default:
                 printf("Numero errado! Tente novamente! \n");
-                menu(); 
         }
         
-    } while(opc != 3);
-
-    //Funcionario *VarFuncionario = CriarFuncionario(nome, cargo, documento);
+    } while(escolha != 3);
 
     // Passando os dados para a função bublleSort.
     bubbleSort(vetor, tamanho);
