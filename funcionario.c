@@ -65,7 +65,7 @@ void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
 
     for(i = 0; i < tamanho; i++) {
 
-        fprintf(arquivo, "Nome: %s\tCargo: %s\t Documento: %i\n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
+        fprintf(arquivo, "%s\t%s\t%i", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
     }
 }
 
@@ -79,7 +79,7 @@ void ImprimirTela(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
 void SalvarDados(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     char linha[200];
 
-    arquivo = fopen("funcionario.txt", "r");
+    arquivo = fopen("funcionario.txt", "r"); //colocar no main pra leitura
     if(arquivo == NULL) {
         printf("Erro ao abrir o arquivo! \n");
     }

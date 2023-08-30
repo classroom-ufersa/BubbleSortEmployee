@@ -42,6 +42,8 @@ int main() {
                         scanf("%d", &documento);
 
                         VarFuncionario[contador] = CriarFuncionario(nome, cargo, documento);
+
+                        Ordenar(arquivo, VarFuncionario, &contador);
                         
 
                         printf("Continuar Cadastrando (1) SIM / (2) NAO ");
@@ -56,10 +58,10 @@ int main() {
                         }
                         if(contador == MAX_FUNCIONARIO) {
                             printf("Limite de cadastro foi atingido! \n");
-                            exit(1);
+                            break;
                         }    
 
-                        fclose(arquivo);
+                        //fclose(arquivo); colcoar na ordernada
                         contador++;
                         //CriaArquivo(arquivo, VarFuncionario); 
 
@@ -74,7 +76,6 @@ int main() {
                         printf("Digite 1 para sair! \n");
                         scanf("%d", &sair);
                     } else if(contador != 0) {
-                        Ordenar(arquivo, VarFuncionario, contador);
                         printf("LISTA ATUALIZADA! \n");
                         printf("Digite 1 para sair! \n");
                         scanf("%d", &sair);    
