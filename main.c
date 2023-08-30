@@ -4,6 +4,8 @@
 
 int main() {
 
+    int escolha, contador = 0, contador2 = 0, sair = 0;
+
     Funcionario *VarFuncionario[10];
 
     // criando arquivo de texto para armazenar os dados dos funcionarios.
@@ -12,14 +14,14 @@ int main() {
         exit(1);
     }
 
+    //SalvarDados(arquivo, VarFuncionario, contador);
+
     int vetor[] = {5, 3, 2, 4, 7, 1, 0, 6};
     int tamanho = sizeof(vetor) / sizeof(int);
     int i;
     
     char nome[50], cargo[50];
     int documento;
-
-    int escolha, contador = 0, contador2 = 0, sair = 0;
 
     do {
         menu();
@@ -40,6 +42,7 @@ int main() {
                         scanf("%d", &documento);
 
                         VarFuncionario[contador] = CriarFuncionario(nome, cargo, documento);
+                        
 
                         printf("Continuar Cadastrando (1) SIM / (2) NAO ");
                         scanf("%d", &sair);
@@ -55,8 +58,9 @@ int main() {
                             printf("Limite de cadastro foi atingido! \n");
                             exit(1);
                         }    
+
+                        fclose(arquivo);
                         contador++;
-                        //Ordenar(arquivo, VarFuncionario, contador);
                         //CriaArquivo(arquivo, VarFuncionario); 
 
                  } while(sair != 2 && contador != 10);
@@ -105,8 +109,6 @@ int main() {
     double tempo = (double)(clock() - inicio) / CLOCKS_PER_SEC;
     tempo = tempo * 1000; //milisegundos
     printf("Tempo de execucao: %.50f\n", tempo);
-
-    fclose(arquivo);
     
     return 0;
 }

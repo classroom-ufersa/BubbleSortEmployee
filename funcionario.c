@@ -76,3 +76,18 @@ void ImprimirTela(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
         printf("Nome: %s \nCargo: %s\nDocumento: %i \n", VarFuncionario[contador]->nome, VarFuncionario[contador]->cargo, VarFuncionario[contador]->documento);  //trocar para pegar dentro do arquivo e imprimir na tela
     }
 }
+
+void SalvarDados(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
+    char linha[200];
+
+    arquivo = fopen("funcionario.txt", "r");
+    if(arquivo == NULL) {
+        printf("Erro ao abrir o arquivo! \n");
+    }
+
+    while(fgets(linha, 200, arquivo) != NULL) {
+        fscanf(arquivo, "%s %s %s", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, VarFuncionario[tamanho]->documento);
+    }
+
+    fprintf(arquivo, "%s %s %s", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, VarFuncionario[tamanho]->documento);
+} 
