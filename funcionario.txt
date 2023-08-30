@@ -1,2 +1,6 @@
-pedro	asd	32
-qwe	sfd	3
+marcos	asd	43
+jao	asd	43
+xcv	asd	34
+alex	sad	65
+aviao	asd	43
+mksd	sad	35

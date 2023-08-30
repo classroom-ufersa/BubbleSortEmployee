@@ -10,12 +10,17 @@ int main() {
 
     // criando arquivo de texto para armazenar os dados dos funcionarios.
     //FILE *arquivo = fopen("funcionario.txt", "w");
-    FILE *arquivo = fopen("funcionario.txt", "w");
+    FILE *arquivo = fopen("funcionario.txt", "a");
     if(arquivo == NULL) {
         exit(1);
     }
 
-    //SalvarDados(arquivo, VarFuncionario, contador);
+    FILE *arquivo2 = fopen("funcionario.txt", "r"); //colocar no main pra leitura
+    if(arquivo2 == NULL) {
+        printf("Erro ao abrir o arquivo! \n");
+    }
+
+    //SalvarDados(arquivo2, VarFuncionario, contador);
 
     int vetor[] = {5, 3, 2, 4, 7, 1, 0, 6};
     int tamanho = sizeof(vetor) / sizeof(int);
@@ -27,6 +32,7 @@ int main() {
     do {
         menu();
         scanf("%d", &escolha); 
+        if(escolha != 0 && escolha )  //terminar de fazer uma condiçao para caso de letra
 
         switch(escolha){
             case 1: // Cadastrando os dados na struct Funcionario.
@@ -70,12 +76,13 @@ int main() {
                         printf("Voce precisa fazer algum cadastro! \n");
                         printf("Digite 1 para sair! \n");
                         scanf("%d", &sair);
-                    } else if(contador != 0) {
+                    } else {
                         Ordenar(arquivo, VarFuncionario, contador);
                         printf("LISTA ATUALIZADA! \n");
                         printf("Digite 1 para sair! \n");
-                        scanf("%d", &sair);    
+                        scanf("%d", &sair);    //resolver o bug de entrar consecutivamente
                     }
+
                 }
                     
                 break;
@@ -108,6 +115,7 @@ int main() {
     printf("Tempo de execucao: %.50f\n", tempo); */
     
     fclose(arquivo);
+    fclose(arquivo2);
 
     return 0;
 }

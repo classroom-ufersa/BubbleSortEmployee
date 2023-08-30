@@ -25,4 +25,4 @@ void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int contador);
 void ImprimirTela(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho);
 
 // Protótipo da função para salvar os dados do arquivo.
-void SalvarDados(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho);
+void SalvarDados(FILE *arquivo2, Funcionario *VarFuncionario[], int tamanho);
