@@ -38,7 +38,7 @@ void menu() {
     
     printf("==========MENU==========\n");
     printf("(1) CADASTRAR\n");
-    printf("(2) LISTA\n");
+    printf("(2) LISTAR NO ARQUIVO\n");
     printf("(3) SAIR\n");
     printf("======================== \n");
 }
@@ -52,6 +52,9 @@ void menu() {
 }*/
 void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     int i, j;
+
+    arquivo = fopen("funcionario.txt", "w");
+    
     Funcionario *aux;  // var do tipo funcionario 
     for (i = 0; i < tamanho; i++) {
         for (j = 0; j < tamanho - 1; j++) {
@@ -64,9 +67,9 @@ void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     }
 
     for(i = 0; i < tamanho; i++) {
-
         fprintf(arquivo, "%s\t%s\t%i", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
     }
+    fclose(arquivo);
 }
 
 void ImprimirTela(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {

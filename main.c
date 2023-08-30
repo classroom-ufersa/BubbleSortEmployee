@@ -9,7 +9,8 @@ int main() {
     Funcionario *VarFuncionario[10];
 
     // criando arquivo de texto para armazenar os dados dos funcionarios.
-    FILE *arquivo = fopen("funcionario.txt", "w");
+    //FILE *arquivo = fopen("funcionario.txt", "w");
+    FILE *arquivo;
     if(arquivo == NULL) {
         exit(1);
     }
@@ -42,10 +43,8 @@ int main() {
                         scanf("%d", &documento);
 
                         VarFuncionario[contador] = CriarFuncionario(nome, cargo, documento);
-
-                        Ordenar(arquivo, VarFuncionario, &contador);
+                        Ordenar(arquivo, VarFuncionario, contador);
                         
-
                         printf("Continuar Cadastrando (1) SIM / (2) NAO ");
                         scanf("%d", &sair);
 
@@ -61,10 +60,7 @@ int main() {
                             break;
                         }    
 
-                        //fclose(arquivo); colcoar na ordernada
-                        contador++;
-                        //CriaArquivo(arquivo, VarFuncionario); 
-
+                    contador++;
                  } while(sair != 2 && contador != 10);
         
                 break;
