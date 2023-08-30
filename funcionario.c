@@ -64,6 +64,15 @@ void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     }
 
     for(i = 0; i < tamanho; i++) {
-        fprintf(arquivo, "Nome: %s \n Cargo: %s \n Documento: %i \n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
+
+        fprintf(arquivo, "Nome: %s \nCargo: %s \nDocumento: %i \n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
+        fprintf(arquivo, "-----------------------\n");
+    }
+}
+
+void ImprimirTela(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
+    int contador;
+    for(contador = 0; contador < tamanho; contador++) {
+        printf("Nome: %s \nCargo: %s\nDocumento: %i \n", VarFuncionario[contador]->nome, VarFuncionario[contador]->cargo, VarFuncionario[contador]->documento);  //trocar para pegar dentro do arquivo e imprimir na tela
     }
 }

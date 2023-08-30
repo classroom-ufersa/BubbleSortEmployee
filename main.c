@@ -65,32 +65,39 @@ int main() {
 
             case 2: // Listando os dados do arquivo. 
                 while(sair != 1) {
-
-                    Ordenar(arquivo, VarFuncionario, contador);
-
-                    printf("Digite 1 para sair! \n");
-                    scanf("%d", &sair);
+                    if(contador == 0) {
+                        printf("Voce precisa fazer algum cadastro! \n");
+                        printf("Digite 1 para sair! \n");
+                        scanf("%d", &sair);
+                    } else if(contador != 0) {
+                        Ordenar(arquivo, VarFuncionario, contador);
+                        printf("LISTA ATUALIZADA! \n");
+                        printf("Digite 1 para sair! \n");
+                        scanf("%d", &sair);    
+                    }
                 }
+                    
                 break;
 
             case 3: // Fechando o programa.
                 printf("OBRIGADO POR USAR O PROGRAMA! \n");
-                printf("SAINDO... ");
+                printf("SAINDO... \n");
                 break;
 
             default:
-                printf("Numero errado! Tente novamente! \n");
+                printf("\nNumero errado! Tente novamente! \n\n");
         }
         
     } while(escolha != 3);
 
-    // Passando os dados para a função bublleSort.
+    /* Passando os dados para a função bublleSort.
     bubbleSort(vetor, tamanho);
 
     for (i = 0; i < tamanho; i++) {
         printf("%d ", vetor[i]);
     }
-    printf(" Ordenado com Bubble Sort ");
+    printf("Ordenado com Bubble Sort ");
+    */
 
     clock_t inicio = clock();
        

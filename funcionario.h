@@ -20,3 +20,6 @@ void arquivo(FILE *arquivo);
 
 // Protótipo da função para ordernar
 void Ordenar(FILE *arquivo, Funcionario **VarFuncionario, int contador);
+
+// Protótipo da função para imprimir na tela
+void ImprimirTela(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho);
