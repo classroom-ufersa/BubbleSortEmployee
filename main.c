@@ -10,7 +10,7 @@ int main() {
 
     // criando arquivo de texto para armazenar os dados dos funcionarios.
     //FILE *arquivo = fopen("funcionario.txt", "w");
-    FILE *arquivo;
+    FILE *arquivo = fopen("funcionario.txt", "w");
     if(arquivo == NULL) {
         exit(1);
     }
@@ -43,9 +43,8 @@ int main() {
                         scanf("%d", &documento);
 
                         VarFuncionario[contador] = CriarFuncionario(nome, cargo, documento);
-                        Ordenar(arquivo, VarFuncionario, contador);
                         
-                        printf("Continuar Cadastrando (1) SIM / (2) NAO ");
+                        printf("Continuar Cadastrando (1) SIM / (2) NAO: ");
                         scanf("%d", &sair);
 
                         if(sair != 1 && sair != 2) {
@@ -72,6 +71,7 @@ int main() {
                         printf("Digite 1 para sair! \n");
                         scanf("%d", &sair);
                     } else if(contador != 0) {
+                        Ordenar(arquivo, VarFuncionario, contador);
                         printf("LISTA ATUALIZADA! \n");
                         printf("Digite 1 para sair! \n");
                         scanf("%d", &sair);    
@@ -100,12 +100,14 @@ int main() {
     printf("Ordenado com Bubble Sort ");
     */
 
-    clock_t inicio = clock();
+    /*clock_t inicio = clock();
        
     // Executar o algoritmo
     double tempo = (double)(clock() - inicio) / CLOCKS_PER_SEC;
     tempo = tempo * 1000; //milisegundos
-    printf("Tempo de execucao: %.50f\n", tempo);
+    printf("Tempo de execucao: %.50f\n", tempo); */
     
+    fclose(arquivo);
+
     return 0;
 }

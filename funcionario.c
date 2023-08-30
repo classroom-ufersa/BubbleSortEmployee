@@ -53,7 +53,7 @@ void menu() {
 void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     int i, j;
 
-    arquivo = fopen("funcionario.txt", "w");
+    //arquivo = fopen("funcionario.txt", "w");
     
     Funcionario *aux;  // var do tipo funcionario 
     for (i = 0; i < tamanho; i++) {
@@ -69,7 +69,6 @@ void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     for(i = 0; i < tamanho; i++) {
         fprintf(arquivo, "%s\t%s\t%i\n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
     }
-    fclose(arquivo);
 }
 
 void ImprimirTela(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
