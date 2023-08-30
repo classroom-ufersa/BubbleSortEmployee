@@ -5,9 +5,9 @@
 
 # Lógica do código:
 ### main:
-#implementação de uma constante para definir a quantidade máxima de funcionários cadastrados.
-#criando as variáveis escolha, contador, contador2 e sair do tipo inteiro.
-#criando um vetor estático de dez espaços do tipo funcionário.
-#criando um arquivo txt para armazenar os dados dos funcionários.
-#faz uma condição para verificar se o arquivo é NULL, caso seja, o pragama sai.
-#cria as variáveis nome e cargo de forma estática do tipo char e cria também a variável documento do tipo int.
+*implementação de uma constante para definir a quantidade máxima de funcionários cadastrados.<br>
+*criando as variáveis escolha, contador, contador2 e sair do tipo inteiro.<br>
+*criando um vetor estático de dez espaços do tipo funcionário.<br>
+*criando um arquivo txt para armazenar os dados dos funcionários.<br>
+*faz uma condição para verificar se o arquivo é NULL, caso seja, o pragama sai.<br>
+*cria as variáveis nome e cargo de forma estática do tipo char e cria também a variável documento do tipo int.<br>
