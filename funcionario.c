@@ -38,7 +38,7 @@ void menu() {
     
     printf("==========MENU==========\n");
     printf("(1) CADASTRAR\n");
-    printf("(2) LISTAR NO ARQUIVO\n");
+    printf("(2) LISTAR\n");
     printf("(3) SAIR\n");
     printf("======================== \n");
 }
@@ -67,7 +67,7 @@ void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     }
 
     for(i = 0; i < tamanho; i++) {
-        fprintf(arquivo, "%s\t%s\t%i", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
+        fprintf(arquivo, "%s\t%s\t%i\n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
     }
     fclose(arquivo);
 }
@@ -81,6 +81,7 @@ void ImprimirTela(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
 
 void SalvarDados(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     char linha[200];
+    int contador = 0;
 
     arquivo = fopen("funcionario.txt", "r"); //colocar no main pra leitura
     if(arquivo == NULL) {
@@ -88,8 +89,9 @@ void SalvarDados(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     }
 
     while(fgets(linha, 200, arquivo) != NULL) {
-        fscanf(arquivo, "%s\t%s\t%s", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, VarFuncionario[tamanho]->documento);
+        fscanf(arquivo, "%s\t%s\t%s\n", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, VarFuncionario[tamanho]->documento);
+        contador++;
     }
 
-    fprintf(arquivo, "%s %s %s", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, VarFuncionario[tamanho]->documento);
+    printf("%s\t%s\t%s\n", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, VarFuncionario[tamanho]->documento); //colocar depois de pegar no arquivo, no case 2
 } 
