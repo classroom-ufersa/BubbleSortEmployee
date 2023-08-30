@@ -65,8 +65,7 @@ void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
 
     for(i = 0; i < tamanho; i++) {
 
-        fprintf(arquivo, "Nome: %s \nCargo: %s \nDocumento: %i \n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
-        fprintf(arquivo, "-----------------------\n");
+        fprintf(arquivo, "Nome: %s\tCargo: %s\t Documento: %i\n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
     }
 }
 
@@ -86,7 +85,7 @@ void SalvarDados(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     }
 
     while(fgets(linha, 200, arquivo) != NULL) {
-        fscanf(arquivo, "%s %s %s", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, VarFuncionario[tamanho]->documento);
+        fscanf(arquivo, "%s\t%s\t%s", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, VarFuncionario[tamanho]->documento);
     }
 
     fprintf(arquivo, "%s %s %s", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, VarFuncionario[tamanho]->documento);
