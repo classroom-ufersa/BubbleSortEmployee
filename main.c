@@ -5,6 +5,7 @@
 int main() {
 
     int escolha, contador = 0, contador2 = 0, sair = 0;
+    char str[200];
 
     Funcionario *VarFuncionario[10];
 
@@ -19,8 +20,6 @@ int main() {
     if(arquivo2 == NULL) {
         printf("Erro ao abrir o arquivo! \n");
     }
-
-    //SalvarDados(arquivo2, VarFuncionario, contador);
 
     int vetor[] = {5, 3, 2, 4, 7, 1, 0, 6};
     int tamanho = sizeof(vetor) / sizeof(int);
@@ -49,6 +48,9 @@ int main() {
                         scanf("%d", &documento);
 
                         VarFuncionario[contador] = CriarFuncionario(nome, cargo, documento);
+
+                        Ordenar(arquivo, VarFuncionario, contador);
+                        printf("LISTA ATUALIZADA! \n");
                         
                         printf("Continuar Cadastrando (1) SIM / (2) NAO: ");
                         scanf("%d", &sair);
@@ -71,20 +73,15 @@ int main() {
                 break;
 
             case 2: // Listando os dados do arquivo. 
-                while(sair != 1) {
-                    if(contador == 0) {
-                        printf("Voce precisa fazer algum cadastro! \n");
-                        printf("Digite 1 para sair! \n");
-                        scanf("%d", &sair);
-                    } else {
-                        Ordenar(arquivo, VarFuncionario, contador);
-                        printf("LISTA ATUALIZADA! \n");
-                        printf("Digite 1 para sair! \n");
-                        scanf("%d", &sair);    //resolver o bug de entrar consecutivamente
-                    }
-
+               
+                for(int i=0;i<tamanho;i++){
+                    SalvarDados(arquivo2, VarFuncionario, contador);
+                    // fscanf(arquivo, "%s\t%s\t%d\n",VarFuncionario[i]->nome,VarFuncionario[i]->cargo,&VarFuncionario[i]->documento);
                 }
-                    
+                for(int i=0;i<tamanho;i++){
+                    printf("%s\t%s\t%d\n",VarFuncionario[i]->nome,VarFuncionario[i]->cargo,VarFuncionario[i]->documento);
+                }
+   
                 break;
 
             case 3: // Fechando o programa.

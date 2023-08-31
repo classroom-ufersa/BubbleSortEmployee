@@ -7,6 +7,7 @@ struct funcionario {
 };
 
 // Função que vai ordenar as string em ordem.
+/*
 void bubbleSort(int *vetor, int tamanho) {
     int i, j, aux;
     for (i = 0; i < tamanho; i++) {
@@ -19,6 +20,7 @@ void bubbleSort(int *vetor, int tamanho) {
         }
     }
 }
+*/
 
 Funcionario *CriarFuncionario(char *nome, char *cargo, int documento) {
     Funcionario *VarFuncionario = (Funcionario*)malloc(sizeof(Funcionario));
@@ -36,20 +38,13 @@ Funcionario *CriarFuncionario(char *nome, char *cargo, int documento) {
 
 void menu() {
     
-    printf("==========MENU==========\n");
-    printf("(1) CADASTRAR\n");
-    printf("(2) LISTAR\n");
-    printf("(3) SAIR\n");
-    printf("======================== \n");
+    printf("==========MENU===========\n");
+    printf("|\t(1) CADASTRAR\t|\n");
+    printf("|\t(2) LISTAR\t|\n");
+    printf("|\t(3) SAIR\t|\n");
+    printf("=========================\n");
 }
-/*void CriaArquivo(FILE *arquivo, Funcionario **VarFuncionario) {
-    int contador;
 
-    for(contador = 0; contador < 10; contador++) {
-        printf("FUNCIONARIO %i \n", contador);
-        fprintf(arquivo, "Nome: %s \n Cargo: %s \n Documento: %i \n\n", VarFuncionario[contador]->nome, VarFuncionario[contador]->cargo, VarFuncionario[contador]->documento);
-    }
-}*/
 void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     int i, j;
     
@@ -64,7 +59,7 @@ void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
         }
     }
 
-    for(i = 0; i < tamanho; i++) {
+    for(i = 0; i <= tamanho; i++) {
         fprintf(arquivo, "%s\t%s\t%i\n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
     }
 }
@@ -79,9 +74,8 @@ void ImprimirTela(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
 void SalvarDados(FILE *arquivo2, Funcionario *VarFuncionario[], int tamanho) {
     char linha[50];
     int contador = 0;
-
     while(fgets(linha, 50, arquivo2) != NULL) {
-        sscanf(linha, "%s\t%s\t%s\n", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, VarFuncionario[tamanho]->documento);
+        fscanf(arquivo2, "%s\t%s\t%i\n", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, &VarFuncionario[tamanho]->documento);
         contador++;
     }
 } 
