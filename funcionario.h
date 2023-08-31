@@ -13,7 +13,7 @@ void bubbleSort(int *vetor, int tamanho);
 Funcionario *CriarFuncionario(char *nome, char *cargo, int documento);
 
 // Protótipo do menu.
-void menu();
+void menu(); 
 
 // Protótipo da função arquivo.
 void arquivo(FILE *arquivo);
