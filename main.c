@@ -70,7 +70,7 @@ int main() {
         
                 break;
 
-            case 2: // Listando os dados do arquivo. 
+            case 2: // Listando os dados do arquivo.  
                 while(sair != 1) {
                     if(contador == 0) {
                         printf("Voce precisa fazer algum cadastro! \n");

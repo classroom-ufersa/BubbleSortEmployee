@@ -79,7 +79,7 @@ void ImprimirTela(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
 void SalvarDados(FILE *arquivo2, Funcionario *VarFuncionario[], int tamanho) {
     char linha[50];
     int contador = 0;
-
+ 
     while(fgets(linha, 50, arquivo2) != NULL) {
         sscanf(linha, "%s\t%s\t%s\n", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, VarFuncionario[tamanho]->documento);
         contador++;
