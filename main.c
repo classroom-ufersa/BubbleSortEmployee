@@ -20,7 +20,7 @@ int main() {
         printf("Erro ao abrir o arquivo! \n");
     }
 
-    //SalvarDados(arquivo2, VarFuncionario, contador);
+    
 
     int vetor[] = {5, 3, 2, 4, 7, 1, 0, 6};
     int tamanho = sizeof(vetor) / sizeof(int);
@@ -49,7 +49,10 @@ int main() {
                         scanf("%d", &documento);
 
                         VarFuncionario[contador] = CriarFuncionario(nome, cargo, documento);
-                        
+                        SalvarDados(arquivo2, VarFuncionario, contador);
+                        Ordenar(arquivo, VarFuncionario, contador);
+                        printf("LISTA ATUALIZADA! \n");
+
                         printf("Continuar Cadastrando (1) SIM / (2) NAO: ");
                         scanf("%d", &sair);
 
@@ -77,8 +80,7 @@ int main() {
                         printf("Digite 1 para sair! \n");
                         scanf("%d", &sair);
                     } else {
-                        Ordenar(arquivo, VarFuncionario, contador);
-                        printf("LISTA ATUALIZADA! \n");
+                        
                         printf("Digite 1 para sair! \n");
                         scanf("%d", &sair);    //resolver o bug de entrar consecutivamente
                     }
