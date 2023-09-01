@@ -36,11 +36,11 @@ Funcionario *CriarFuncionario(char *nome, char *cargo, int documento) {
 
 void menu() {
     
-    printf("==========MENU==========\n");
-    printf("(1) CADASTRAR\n");
-    printf("(2) LISTAR\n");
-    printf("(3) SAIR\n");
-    printf("======================== \n");
+    printf("==========MENU===========\n");
+    printf("|\t(1) CADASTRAR\t|\n");
+    printf("|\t(2) LISTAR\t|\n");
+    printf("|\t(3) SAIR\t|\n");
+    printf("=========================\n");
 }
 /*void CriaArquivo(FILE *arquivo, Funcionario **VarFuncionario) {
     int contador;
@@ -81,7 +81,7 @@ void SalvarDados(FILE *arquivo2, Funcionario *VarFuncionario[], int tamanho) {
     int contador = 0;
  
     while(fgets(linha, 50, arquivo2) != NULL) {
-        sscanf(linha, "%s\t%s\t%s\n", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, VarFuncionario[tamanho]->documento);
+        sscanf(linha, "%s\t%s\t%d\n", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, &VarFuncionario[tamanho]->documento);
         contador++;
     }
 } 
