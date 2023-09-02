@@ -19,10 +19,9 @@ void menu();
 void arquivo(FILE *arquivo);
 
 // Protótipo da função para ordernar.
-void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int contador);
-
-// Protótipo da função para imprimir na tela.
-void ImprimirTela(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho);
+void Ordenar(FILE *arquivo, Funcionario **VarFuncionario, int contador);
 
 // Protótipo da função para salvar os dados do arquivo.
-void SalvarDados(FILE *arquivo2, Funcionario *VarFuncionario[], int tamanho);
+void SalvarDados(FILE *arquivo2, Funcionario **VarFuncionario);
+
+void LimpaBuffer(Funcionario **VarFuncionario, int tamanho);

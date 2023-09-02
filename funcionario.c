@@ -6,20 +6,6 @@ struct funcionario {
     int documento;
 };
 
-// Função que vai ordenar as string em ordem.
-void bubbleSort(int *vetor, int tamanho) {
-    int i, j, aux;
-    for (i = 0; i < tamanho; i++) {
-        for (j = 0; j < tamanho - 1; j++) {
-            if (vetor[j] > vetor[j + 1]) {
-                aux = vetor[j];
-                vetor[j] = vetor[j + 1];
-                vetor[j + 1] = aux;
-            }
-        }
-    }
-}
-
 Funcionario *CriarFuncionario(char *nome, char *cargo, int documento) {
     Funcionario *VarFuncionario = (Funcionario*)malloc(sizeof(Funcionario));
     if(VarFuncionario == NULL) {
@@ -42,15 +28,8 @@ void menu() {
     printf("|\t(3) SAIR\t|\n");
     printf("=========================\n");
 }
-/*void CriaArquivo(FILE *arquivo, Funcionario **VarFuncionario) {
-    int contador;
 
-    for(contador = 0; contador < 10; contador++) {
-        printf("FUNCIONARIO %i \n", contador);
-        fprintf(arquivo, "Nome: %s \n Cargo: %s \n Documento: %i \n\n", VarFuncionario[contador]->nome, VarFuncionario[contador]->cargo, VarFuncionario[contador]->documento);
-    }
-}*/
-void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
+void Ordenar(FILE *arquivo, Funcionario **VarFuncionario, int tamanho) {
     int i, j;
     
     Funcionario *aux;  // var do tipo funcionario 
@@ -69,19 +48,22 @@ void Ordenar(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
     }
 }
 
-void ImprimirTela(FILE *arquivo, Funcionario *VarFuncionario[], int tamanho) {
-    int contador;
-    for(contador = 0; contador < tamanho; contador++) {
-        printf("Nome: %s \nCargo: %s\nDocumento: %i \n", VarFuncionario[contador]->nome, VarFuncionario[contador]->cargo, VarFuncionario[contador]->documento);  //trocar para pegar dentro do arquivo e imprimir na tela
-    }
-}
-
-void SalvarDados(FILE *arquivo2, Funcionario *VarFuncionario[], int tamanho) {
+void SalvarDados(FILE *arquivo2, Funcionario **VarFuncionario) {
     char linha[50];
     int contador = 0;
  
     while(fgets(linha, 50, arquivo2) != NULL) {
-        sscanf(linha, "%s\t%s\t%d\n", VarFuncionario[tamanho]->nome, VarFuncionario[tamanho]->cargo, &VarFuncionario[tamanho]->documento);
+        sscanf(linha, "%s\t%s\t%d\n", VarFuncionario[contador]->nome, VarFuncionario[contador]->cargo, &VarFuncionario[contador]->documento);
         contador++;
     }
 } 
+
+void LimpaBuffer(Funcionario **VarFuncionario, int tamanho) {
+    int i;
+
+    for (int i = 0; i < tamanho; i++) {
+        free(VarFuncionario[i]);
+    }   
+    free(VarFuncionario);
+
+}
