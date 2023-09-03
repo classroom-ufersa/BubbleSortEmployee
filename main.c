@@ -1,24 +1,21 @@
 #include "funcionario.c"  //.c compila gcc -o main main.c
 
 int main() {
-
+    //SalvarDados(arquivo2, &VarFuncionario, contador);
     int escolha, contador = 0, contador2 = 0, sair = 0;
 
     //Funcionario *VarFuncionario = (Funcionario*)malloc(sizeof(Funcionario));
     Funcionario **VarFuncionario = NULL;
 
     //FILE *arquivo = fopen("funcionario.txt", "w");
-    FILE *arquivo = fopen("funcionario.txt", "a");
-    if(arquivo == NULL) {
-        exit(1);
-    }
-
+   
+/*   
     FILE *arquivo2 = fopen("funcionario.txt", "r"); //colocar no main pra leitura
-    if(arquivo2 == NULL) {
-        printf("Erro ao abrir o arquivo! \n");
-        exit(1);
-    }
-    
+        if(arquivo2 == NULL) {
+            printf("Erro ao abrir o arquivo! \n");
+            exit(1);
+        }
+  */  
     char nome[50], cargo[50];
     int documento;
 
@@ -29,6 +26,13 @@ int main() {
         switch(escolha){
             case 1: // Cadastrando os dados na struct Funcionario.
                  do{
+
+                    FILE *arquivo = fopen("funcionario.txt", "a");
+                        if(arquivo == NULL) {
+                            exit(1);
+                        }
+
+
                         contador++;
                         contador2++;
                         printf("FUNCIONARIO %i \n", contador2);
@@ -40,7 +44,8 @@ int main() {
 
                         printf("Informe Seu Documento: ");
                         scanf("%d", &documento);
-
+                        FormatarString(nome);
+                        FormatarString(cargo);
 
                        /* VarFuncionario = (Funcionario**)realloc(VarFuncionario, contador * sizeof(Funcionario*));
                         if(VarFuncionario == NULL) {
@@ -50,6 +55,9 @@ int main() {
 
                         VarFuncionario[contador - 1] = *CriarFuncionario(nome, cargo, documento, contador);
                         */
+
+                        // que merda é essa johan?
+                        /*oq era pra isso fazer ao certo*/
 
                        Funcionario *NovoFuncionario = CriarFuncionario(nome, cargo, documento);
 
@@ -61,10 +69,11 @@ int main() {
 
                         VarFuncionario[contador - 1] = NovoFuncionario;
                         
-                        //SalvarDados(arquivo2, &VarFuncionario, contador);
-
                         Ordenar(arquivo, VarFuncionario, contador);
                         printf("LISTA ATUALIZADA! \n");
+                        
+                        fclose(arquivo);
+                        // fclose(arquivo2);
 
                         printf("Continuar Cadastrando (1) SIM / (2) NAO: ");
                         scanf("%d", &sair);
@@ -125,8 +134,6 @@ int main() {
 
     LimpaBuffer(VarFuncionario, contador);
     
-    fclose(arquivo);
-    fclose(arquivo2);
 
     return 0;
 }
