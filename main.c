@@ -4,7 +4,6 @@ int main() {
     //SalvarDados(arquivo2, &VarFuncionario, contador);
     int escolha, contador = 0, contador2 = 0, sair = 0;
 
-    //Funcionario *VarFuncionario = (Funcionario*)malloc(sizeof(Funcionario));
     Funcionario **VarFuncionario = NULL;
 
     //FILE *arquivo = fopen("funcionario.txt", "w");
@@ -16,6 +15,12 @@ int main() {
             exit(1);
         }
   */  
+
+    FILE *arquivo = fopen("funcionario.txt", "a");
+        if(arquivo == NULL) {
+            exit(1);
+        }
+
     char nome[50], cargo[50];
     int documento;
 
@@ -26,13 +31,8 @@ int main() {
         switch(escolha){
             case 1: // Cadastrando os dados na struct Funcionario.
                  do{
-
-                    FILE *arquivo = fopen("funcionario.txt", "a");
-                        if(arquivo == NULL) {
-                            exit(1);
-                        }
-
-
+                    arquivo = fopen("funcionario.txt", "a");
+                    
                         contador++;
                         contador2++;
                         printf("FUNCIONARIO %i \n", contador2);
@@ -44,6 +44,8 @@ int main() {
 
                         printf("Informe Seu Documento: ");
                         scanf("%d", &documento);
+
+                        // Passando as strings para serem formatadas.
                         FormatarString(nome);
                         FormatarString(cargo);
 
@@ -56,9 +58,6 @@ int main() {
                         VarFuncionario[contador - 1] = *CriarFuncionario(nome, cargo, documento, contador);
                         */
 
-                        // que merda é essa johan?
-                        /*oq era pra isso fazer ao certo*/
-
                        Funcionario *NovoFuncionario = CriarFuncionario(nome, cargo, documento);
 
                         VarFuncionario = (Funcionario **)realloc(VarFuncionario, contador * sizeof(Funcionario *));
@@ -69,12 +68,6 @@ int main() {
 
                         VarFuncionario[contador - 1] = NovoFuncionario;
                         
-                        Ordenar(arquivo, VarFuncionario, contador);
-                        printf("LISTA ATUALIZADA! \n");
-                        
-                        fclose(arquivo);
-                        // fclose(arquivo2);
-
                         printf("Continuar Cadastrando (1) SIM / (2) NAO: ");
                         scanf("%d", &sair);
 
@@ -113,7 +106,12 @@ int main() {
             default:
                 printf("\nNumero errado! Tente novamente! \n\n");
         }
-        
+    // Fazendo a ordenação no final do switch para assim a ordenação funcionar.
+    Ordenar(arquivo, VarFuncionario, contador);
+    printf("LISTA ATUALIZADA! \n");
+    fclose(arquivo);
+    // fclose(arquivo2);
+
     } while(escolha != 3);
 
     /* Passando os dados para a função bublleSort.
