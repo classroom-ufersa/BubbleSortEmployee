@@ -47,16 +47,34 @@ void Ordenar(FILE *arquivo, Funcionario **VarFuncionario, int tamanho) {
         fprintf(arquivo, "%s\t%s\t%i\n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
     }
 }
-/*void SalvarDados(FILE *arquivo2, Funcionario **VarFuncionario) {
-    char linha[50];
-    int contador = 0;
- 
-    while(fgets(linha, 50, arquivo2) != NULL) {
-        sscanf(linha, "%s\t%s\t%d\n", VarFuncionario[contador]->nome, VarFuncionario[contador]->cargo, &VarFuncionario[contador]->documento);
+void SalvarDados(FILE *arquivo, Funcionario **VarFuncionario, int contador) {
+    int i, j;
+
+    FILE *LerArquivo = fopen("funcionario.txt", "r");
+    if(LerArquivo == NULL) {
+        printf("Erro ao abrir o arquivo da variaveoo LerArquivo! \n");
+        exit(1);
+    }
+
+    //Funcionario *testefuncionarios; criar novo funcionario para pegar, comparar e colocar no arquivo
+
+    while(feof(LerArquivo)) {
+        fscanf(LerArquivo, "%s\t%s\t%i\n", VarFuncionario[contador]->nome, VarFuncionario[contador]->cargo, &VarFuncionario[contador]->documento);
         contador++;
     }
-} 
-*/
+
+    for(i = 0; i < contador; i++) {
+        for(j = 0; j < contador; j++) {
+            if(!strcmp(VarFuncionario[j]->nome, VarFuncionario[j]->nome) == 0) {
+                Ordenar(arquivo, VarFuncionario, contador);
+            }
+        }
+    }
+
+    
+    
+    fclose(LerArquivo);
+}
 void LimpaBuffer(Funcionario **VarFuncionario, int tamanho) {
     int i;
 
