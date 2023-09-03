@@ -47,8 +47,7 @@ void Ordenar(FILE *arquivo, Funcionario **VarFuncionario, int tamanho) {
         fprintf(arquivo, "%s\t%s\t%i\n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
     }
 }
-
-void SalvarDados(FILE *arquivo2, Funcionario **VarFuncionario) {
+/*void SalvarDados(FILE *arquivo2, Funcionario **VarFuncionario) {
     char linha[50];
     int contador = 0;
  
@@ -57,7 +56,7 @@ void SalvarDados(FILE *arquivo2, Funcionario **VarFuncionario) {
         contador++;
     }
 } 
-
+*/
 void LimpaBuffer(Funcionario **VarFuncionario, int tamanho) {
     int i;
 
@@ -66,4 +65,22 @@ void LimpaBuffer(Funcionario **VarFuncionario, int tamanho) {
     }   
     free(VarFuncionario);
 
+}
+
+void FormatarString(char*nomeF){
+	
+	int Inicial=1,i;
+	
+	for(i=0;i<strlen(nomeF);i++){
+        if(isspace(nomeF[i])){
+            Inicial=1;
+        }else if(Inicial){
+		    nomeF[i]=toupper(nomeF[i]);
+		    Inicial=0;
+		}else {
+		    nomeF[i]=tolower(nomeF[i]);
+		}
+		
+	}
+	
 }

@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <ctype.h>
+
 
 // Protótipo da struct funcionário.
 typedef struct funcionario Funcionario; 
@@ -22,6 +24,8 @@ void arquivo(FILE *arquivo);
 void Ordenar(FILE *arquivo, Funcionario **VarFuncionario, int contador);
 
 // Protótipo da função para salvar os dados do arquivo.
-void SalvarDados(FILE *arquivo2, Funcionario **VarFuncionario);
+// void SalvarDados(FILE *arquivo2, Funcionario **VarFuncionario);
 
 void LimpaBuffer(Funcionario **VarFuncionario, int tamanho);
+
+void FormatarString(char*nomeF);
