@@ -23,9 +23,7 @@ void arquivo(FILE *arquivo);
 // Protótipo da função para ordernar.
 void Ordenar(FILE *arquivo, Funcionario **VarFuncionario, int contador);
 
-// Protótipo da função para salvar os dados do arquivo.
-// void SalvarDados(FILE *arquivo2, Funcionario **VarFuncionario);
-
 void LimpaBuffer(Funcionario **VarFuncionario, int tamanho);
 
+// Protótipo da função que faz a formatação das stings.
 void FormatarString(char*nomeF);
