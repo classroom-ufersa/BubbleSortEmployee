@@ -14,7 +14,7 @@ Imagem disponível em: <https://lh5.googleusercontent.com/_oLwPF5ZvaZZ4pGD-HvSUS
 
 # Função Bubble Sort:
 
-void bubbleSort(int *vetor, int tamanho) {<br>
+<pre>void bubbleSort(int *vetor, int tamanho) {<br>
     int i, j, aux;<br>
     for (i = 0; i < tamanho; i++) { <br>
         for (j = 0; j < tamanho - 1; j++) { <br>
@@ -25,7 +25,7 @@ void bubbleSort(int *vetor, int tamanho) {<br>
             }<br>
         }<br>
     }<br>
-}<br>
+}<br></pre>
 
 # Análise de complexidade do Bubble sort:
 ### resultado:
