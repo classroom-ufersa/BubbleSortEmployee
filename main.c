@@ -12,6 +12,8 @@ int main() {
             exit(1);
         }
 
+    SalvarDados(arquivo, VarFuncionario, contador);
+
     char nome[50], cargo[50];
     int documento;
 
@@ -43,7 +45,20 @@ int main() {
                         FormatarString(nome);
                         FormatarString(cargo);
 
+
                        Funcionario *NovoFuncionario = CriarFuncionario(nome, cargo, documento);
+
+                       /* VarFuncionario = (Funcionario**)realloc(VarFuncionario, contador * sizeof(Funcionario*));
+                        if(VarFuncionario == NULL) {
+                            printf("Erro ao alocar no main a variavel VarFuncionario! \n");
+                            exit(1);
+                        }
+
+                        VarFuncionario[contador - 1] = *CriarFuncionario(nome, cargo, documento, contador);
+                        */
+
+                        Funcionario *NovoFuncionario = CriarFuncionario(nome, cargo, documento);
+
 
                         VarFuncionario = (Funcionario **)realloc(VarFuncionario, contador * sizeof(Funcionario *));
                             if (VarFuncionario == NULL) {
