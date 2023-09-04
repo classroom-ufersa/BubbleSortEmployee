@@ -50,6 +50,17 @@ void Ordenar(FILE *arquivo, Funcionario **VarFuncionario, int tamanho) {
 void SalvarDados(FILE *arquivo, Funcionario **VarFuncionario, int contador) {
     
     /*
+    int i,linhas=0;
+    char string;
+
+    
+    while((string=fputc(arquivo) != EOF)){
+        if(string == '\n');
+        linhas++;
+    }
+    
+    rewind(arquivo);
+
     // vai realocar o tamanho do vetor da struct.
     VarFuncionario=(Funcionario**)realloc(VarFuncionario, linhas*sizeof(Funcionario*));
     if(VarFuncionario==NULL){
