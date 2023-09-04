@@ -44,37 +44,91 @@ void Ordenar(FILE *arquivo, Funcionario **VarFuncionario, int tamanho) {
     }
 
     for(i = 0; i < tamanho; i++) {
-        fprintf(arquivo, "%s\t%s\t%i\n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
+        //fprintf(arquivo, "%s\t%s\t%i\n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
     }
 }
 void SalvarDados(FILE *arquivo, Funcionario **VarFuncionario, int contador) {
     int i, j;
 
-    FILE *LerArquivo = fopen("funcionario.txt", "r");
-    if(LerArquivo == NULL) {
-        printf("Erro ao abrir o arquivo da variaveoo LerArquivo! \n");
-        exit(1);
-    }
+    Funcionario **temp;
+    Funcionario **dados = NULL;
+    int tamanho = 0;
 
-    //Funcionario *testefuncionarios; criar novo funcionario para pegar, comparar e colocar no arquivo
+    while (fscanf(arquivo, "%s\t%s\t%d\n", temp[contador]->nome, temp[contador]->cargo, &temp[contador]->documento) != EOF) {
+        int duplicata = 0;
 
-    while(feof(LerArquivo)) {
-        fscanf(LerArquivo, "%s\t%s\t%i\n", VarFuncionario[contador]->nome, VarFuncionario[contador]->cargo, &VarFuncionario[contador]->documento);
+        // Verifica se o funcionário já existe na variável
+        for (int i = 0; i < tamanho; i++) {
+            if (strcmp(temp[i]->nome, dados[i]->nome) == 0) {
+                duplicata = 1;
+                break;
+            }
+        }
+
+        // Se não for uma duplicata, armazena o funcionário na variável
+        if (!duplicata) {
+            tamanho++;
+            dados = realloc(dados, tamanho * sizeof(Funcionario *));
+            dados[tamanho - 1] = malloc(sizeof(Funcionario));
+            strcpy(dados[tamanho - 1]->nome, temp[tamanho]->nome);
+            strcpy(dados[tamanho - 1]->cargo, temp[tamanho]->cargo);
+            dados[tamanho - 1]->documento = temp[tamanho]->documento;
+        }
         contador++;
     }
 
-    for(i = 0; i < contador; i++) {
-        for(j = 0; j < contador; j++) {
-            if(!strcmp(VarFuncionario[j]->nome, VarFuncionario[j]->nome) == 0) {
-                Ordenar(arquivo, VarFuncionario, contador);
-            }
+    VarFuncionario = dados;
+    contador = tamanho;
+    
+    
+}
+void AdicionarNovosDados(Funcionario **VarFuncionario, int contador) {
+    int tamanho = contador;
+    Funcionario **dados = VarFuncionario;
+
+    int duplicata = 0;
+
+    // Verifica se o funcionário já existe na variável
+    for (int i = 0; i < tamanho; i++) {
+        if (strcmp(VarFuncionario[i]->nome, dados[i]->nome) == 0) {
+            duplicata = 1;
+            break;
         }
     }
 
-    
-    
-    fclose(LerArquivo);
+    // Se não for uma duplicata, adiciona o funcionário à variável
+    if (!duplicata) {
+        tamanho++;
+        dados = realloc(dados, tamanho * sizeof(Funcionario *));
+        dados[tamanho - 1] = malloc(sizeof(Funcionario));
+        strcpy(dados[tamanho - 1]->nome, VarFuncionario[tamanho]->nome);
+        strcpy(dados[tamanho - 1]->cargo, VarFuncionario[tamanho]->cargo);
+        dados[tamanho - 1]->documento = VarFuncionario[tamanho]->documento;
+    }
+
+    VarFuncionario = dados;
+    contador = tamanho;
 }
+
+void OrdenarEAtualizarArquivo(FILE *arquivo, Funcionario **VarFuncionario, int contador) {
+    // Ordena os funcionários por nome (você pode usar sua função de ordenação)
+    // Suponha que você tenha uma função de ordenação chamada OrdenarPorNome
+    // Esta função não está definida aqui, você precisa implementá-la
+
+    FILE *LerArquivo = fopen("funcionario.txt", "r");
+    if(LerArquivo == NULL) {
+        exit(1);
+    }
+
+    Ordenar(LerArquivo, VarFuncionario, contador);
+
+    // Escreve os funcionários ordenados no arquivo
+    fseek(arquivo, 0, SEEK_SET);
+    for (int i = 0; i < contador; i++) {
+        fprintf(arquivo, "%s %s %d\n", VarFuncionario[i]->nome, VarFuncionario[i]->cargo, VarFuncionario[i]->documento);
+    }
+}
+
 void LimpaBuffer(Funcionario **VarFuncionario, int tamanho) {
     int i;
 

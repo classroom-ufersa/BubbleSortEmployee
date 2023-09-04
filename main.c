@@ -111,7 +111,8 @@ int main() {
                 printf("\nNumero errado! Tente novamente! \n\n");
         }
     // Fazendo a ordenação no final do switch para assim a ordenação funcionar.
-    Ordenar(arquivo, VarFuncionario, contador);
+    AdicionarNovosDados(VarFuncionario, contador);
+    //Ordenar(arquivo, VarFuncionario, contador);
     printf("LISTA ATUALIZADA! \n");
     fclose(arquivo);
     contador=0;// Zerar o contador para não duplicar na hora de passar para o arquivo.

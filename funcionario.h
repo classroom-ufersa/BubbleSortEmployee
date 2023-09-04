@@ -28,4 +28,8 @@ void FormatarString(char*nomeF);
 
 void SalvarDados(FILE *arquivo, Funcionario **VarFuncionario, int contador);
 
+void AdicionarNovosDados(Funcionario **VarFuncionario, int contador);
+
+void OrdenarEAtualizarArquivo(FILE *arquivo, Funcionario **VarFuncionario, int contador);
+
 void LimpaBuffer(Funcionario **VarFuncionario, int tamanho);
