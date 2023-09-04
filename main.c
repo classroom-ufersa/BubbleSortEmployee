@@ -95,11 +95,11 @@ int main() {
                     } else {
                         // SalvarDados(arquivo, &VarFuncionario, contador);
                         printf("Digite 1 para sair! \n");
-                        scanf("%d", &sair);    //resolver o bug de entrar consecutivamente
+                        scanf("%d", &sair);   //resolver o bug de entrar consecutivamente
+                        getchar();
+                        system("clear");
                     }
-
                 }
-                    
                 break;
 
             case 3: // Fechando o programa.

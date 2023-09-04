@@ -48,6 +48,27 @@ void Ordenar(FILE *arquivo, Funcionario **VarFuncionario, int tamanho) {
     }
 }
 void SalvarDados(FILE *arquivo, Funcionario **VarFuncionario, int contador) {
+    
+    /*
+    // vai realocar o tamanho do vetor da struct.
+    VarFuncionario=(Funcionario**)realloc(VarFuncionario, linhas*sizeof(Funcionario*));
+    if(VarFuncionario==NULL){
+    printf("erro na memoria!\n");
+    }
+   
+    int i;
+    // vai passar os dados para a struct.
+    for(i=0;i<linhas;i++){
+        fscanf(arquivo,"%s %s %i",VarFuncionario[i]->nome, VarFuncionario[i]->cargo, &VarFuncionario[i]->documento);
+
+    }
+    // vai printa na tela os funcionarios que estão no arquivo.
+    for(i=0;i<linhas;i++){
+        printf("%s\t%s\t%ls\n",VarFuncionario[i]->nome, VarFuncionario[i]->cargo, &VarFuncionario[i]->documento);
+    }
+    fclose(arquivo);
+*/
+    
     int i, j;
 
     Funcionario **temp;
