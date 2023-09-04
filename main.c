@@ -46,7 +46,7 @@ int main() {
                         FormatarString(cargo);
 
 
-                       Funcionario *NovoFuncionario = CriarFuncionario(nome, cargo, documento);
+                    //    Funcionario *NovoFuncionario = CriarFuncionario(nome, cargo, documento);
 
                        /* VarFuncionario = (Funcionario**)realloc(VarFuncionario, contador * sizeof(Funcionario*));
                         if(VarFuncionario == NULL) {
@@ -114,6 +114,8 @@ int main() {
     Ordenar(arquivo, VarFuncionario, contador);
     printf("LISTA ATUALIZADA! \n");
     fclose(arquivo);
+    contador=0;// Zerar o contador para não duplicar na hora de passar para o arquivo.
+
 
        
     } while(escolha != 3);
